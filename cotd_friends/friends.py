@@ -9,11 +9,10 @@ def friends(n):
     """
     Function for finding friend numbers from 2 - n
     :param n: maximum number 
-    :return: a list of tuples containing friend numbers
+    :return: a list of pairs containing friend numbers
     """
-    if n < 2: return {}
+    #
     dictOfNumbersAndSums = getDictOfNumbersAndTheirDividerSums(n)
-    print(dictOfNumbersAndSums)
     friends = []
     for number, sum in dictOfNumbersAndSums.items():
         for friendNumber, friendSum in dictOfNumbersAndSums.items():
@@ -28,6 +27,7 @@ def getDictOfNumbersAndTheirDividerSums(n):
     :param n: number
     :return: dictionary or numbers and their divider sums
     """
+    if n < 2: return {}
     dictOfNumbersAndSums = {}
     for i in range (2, n):
         dictOfNumbersAndSums.update(getNumberAndDividerSumDict(i))
@@ -57,4 +57,4 @@ def getDividers(n):
 
 
 if __name__ == '__main__':
-    print(friends(2859999))
+    print(friends(2))

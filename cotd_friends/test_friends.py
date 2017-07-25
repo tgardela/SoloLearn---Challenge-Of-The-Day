@@ -17,13 +17,13 @@ class TestFriends(unittest.TestCase):
 
 
     def test_getDictOfNumbersAndTheirDividerSums(self):
-        testCases = [ [{2:1}, 3], [{2:1, 3:1}, 4], [{2:1, 3:1, 4:3, 5:1, 6:6, 7:1, 8:7}, 9]]
+        testCases = [ [{}, 1], [{2:1}, 3], [{2:1, 3:1}, 4], [{2:1, 3:1, 4:3, 5:1, 6:6, 7:1, 8:7}, 9]]
         for i in range(len(testCases)):
             self.assertEqual(testCases[i][0], friends.getDictOfNumbersAndTheirDividerSums(testCases[i][1]))
 
 
     def test_Friends(self):
-        testCases = [ [[3, 4], 5] ]
+        testCases = [ [[[220, 284], [284, 220]], 285] ]
         for i in range(len(testCases)):
             self.assertEqual(testCases[i][0], friends.friends(testCases[i][1]))
 
