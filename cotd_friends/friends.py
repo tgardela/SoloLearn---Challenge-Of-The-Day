@@ -11,7 +11,15 @@ def friends(n):
     :param n: maximum number 
     :return: a list of tuples containing friend numbers
     """
-    return n
+    if n < 2: return {}
+    dictOfNumbersAndSums = getDictOfNumbersAndTheirDividerSums(n)
+    print(dictOfNumbersAndSums)
+    friends = []
+    for number, sum in dictOfNumbersAndSums.items():
+        for friendNumber, friendSum in dictOfNumbersAndSums.items():
+            if number == friendSum and sum == friendNumber and number != friendNumber:
+                friends.append([number, friendNumber])
+    return friends
 
 
 def getDictOfNumbersAndTheirDividerSums(n):
@@ -20,10 +28,10 @@ def getDictOfNumbersAndTheirDividerSums(n):
     :param n: number
     :return: dictionary or numbers and their divider sums
     """
-    dictionary = {}
+    dictOfNumbersAndSums = {}
     for i in range (2, n):
-        dictionary.update(getNumberAndDividerSumDict(i))
-    return dictionary
+        dictOfNumbersAndSums.update(getNumberAndDividerSumDict(i))
+    return dictOfNumbersAndSums
 
 
 def getNumberAndDividerSumDict(n):
@@ -46,3 +54,7 @@ def getDividers(n):
         if n % i == 0:
             dividers.append(i)
     return dividers
+
+
+if __name__ == '__main__':
+    print(friends(2859999))
