@@ -11,9 +11,15 @@ class TestFriends(unittest.TestCase):
 
 
     def test_getNumbersAndDividerSumDict(self):
-        testCases = [ [{2:1}, 2], [{220:284}, 220] ]
+        testCases = [ [{2:1}, 2], [{220:284}, 220], [{284:220}, 284]]
         for i in range(0, len(testCases)):
-            self.assertEqual(testCases[i][0], friends.getNumbersAndDividerSumDict(testCases[i][1]))
+            self.assertEqual(testCases[i][0], friends.getNumberAndDividerSumDict(testCases[i][1]))
+
+
+    def test_getDictOfNumbersAndTheirDividerSums(self):
+        testCases = [ [{2:1}, 3], [{2:1, 3:1}, 4], [{2:1, 3:1, 4:3, 5:1, 6:6, 7:1, 8:7}, 9]]
+        for i in range(0, len(testCases)):
+            self.assertEqual(testCases[i][0], friends.getDictOfNumbersAndTheirDividerSums(testCases[i][1]))
 
 
     def test_Friends(self):

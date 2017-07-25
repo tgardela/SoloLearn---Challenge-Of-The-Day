@@ -14,8 +14,26 @@ def friends(n):
     return n
 
 
-def getNumbersAndDividerSumDict(n):
+def getDictOfNumbersAndTheirDividerSums(n):
+    """
+    Functions that returns the full dictionary for all numbeer between 2 and n and their divider sums
+    :param n: number
+    :return: dictionary or numbers and their divider sums
+    """
+    dictionary = {}
+    for i in range (2, n):
+        dictionary.update(getNumberAndDividerSumDict(i))
+    return dictionary
+
+
+def getNumberAndDividerSumDict(n):
+    """
+    Function that creates a dictionary where number is the key and the sum of its dividers is the value
+    :param n: number
+    :return: dictionary {number : sum of its divisors}
+    """
     return {n : sum(getDividers(n))}
+
 
 def getDividers(n):
     """
