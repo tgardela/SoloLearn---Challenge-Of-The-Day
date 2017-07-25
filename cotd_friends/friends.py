@@ -13,3 +13,11 @@ def friends(n):
     """
     return n
 
+
+def getDividers(n):
+    """
+    Function for getting a list of dividers
+    :param n: number for which the dividers are to be found
+    :return: list of dividers on n
+    """
+    return n
